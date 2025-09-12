@@ -1,0 +1,60 @@
+课程中心
+学习社区
+我的自习室
+企业合作
+<返回百题斩
+旅游社晔晔
+已解决1/3
+code editor
+开启代码补全
+分享代码
+隐藏注释
+题目“三
+19#使用BeautifulSoup()传入变量html和解析器lxml,赋值给soup
+20 soup = BeautifulSoup(html, "lxml")
+输出格式：每个信息之间加英文逗号"，"
+21
+Furnished apartment 5 min to the se
+22
+#
+TODO
+使用find_all()查询soup中class="_y89bwt"的节点，赋值给content_a
+a in Oba/Alanya,整套公寓·1室1卫2床，
+ll
+价格￥106每晚，https://www.airbnb.cn/
+23
+rooms/45814830?location=%E5%9C%9F%E
+8%80%B3%E5%85%B6&previous_page_sect
+24
+ion_name=1000
+#
+TODO
+for循环遍历content_all
+26
+......
+27
+注意：
+28
+#
+TODO
+使用find()函数获取节点class="_qrfr9x5",用.text提取房源名
+1.需要输出的名称拆分成两部分嵌套在节点中，需
+称，并赋值给name
+要用到.text知识点。
+2.需要输出的房价需要价格￥532，也要用到.text
+29
+知识点。
+....
+土A5
+run
+参考答案
+35
+Q土耳其
+tng000-opondata-chack-n
+output
+300多处住宿
+befere,er T
+onco"_fldLatyo"colors rgb172
+limportan:
+rEv Modusa'Rustic Rock houso, Kokova vow Vila
+inhortod hom div._tackt
