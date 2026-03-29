@@ -4,7 +4,7 @@ from langchain.memory import ConversationBufferMemory #本项目使用旧版lang
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import ConversationChain
 client=ChatOpenAI(
-    api_key="sk-441cc75434834381ad21c9b7c3e43689",
+    api_key="security_code",
     model="deepseek-chat",
     base_url="https://api.deepseek.com"
 )

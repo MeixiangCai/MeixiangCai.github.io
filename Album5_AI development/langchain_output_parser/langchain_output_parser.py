@@ -4,7 +4,7 @@ from langchain_core.prompts import PromptTemplate #本项目使用新版langchai
 from langchain_core.output_parsers import CommaSeparatedListOutputParser
 #创建模型客户端
 client=ChatOpenAI(
-    api_key="sk-441cc75434834381ad21c9b7c3e43689",
+    api_key="security_code",
     model="deepseek-chat",
     base_url="https://api.deepseek.com"
 )

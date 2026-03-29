@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI #能与AI模型进行通信
 from langchain_core.messages import SystemMessage, HumanMessage # 构建聊天消息 # type: ignore
 #创建客户端实例
 client=ChatOpenAI(
-    api_key="sk-441cc75434834381ad21c9b7c3e43689",
+    api_key="security_code",
     model="deepseek-chat",
     base_url="https://api.deepseek.com",
     temperature=0.1,

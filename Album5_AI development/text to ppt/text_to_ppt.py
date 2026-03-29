@@ -2,7 +2,7 @@
 from openai import OpenAI
 import json
 client=OpenAI(
-    api_key="sk-1032e547c2404c20940a4187e6b06845",
+    api_key="security_code",
     base_url="https://api.deepseek.com"
 )
 #设计few-shot风格的提示词

@@ -2,7 +2,7 @@
 from langchain_openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 model=ChatOpenAI(
-    api_key="sk-ae518d28b0b144179862cccbe5594daa",
+    api_key="security_code",
     model="deepseek-chat",
     base_url="https://api.deepseek.com"
 )

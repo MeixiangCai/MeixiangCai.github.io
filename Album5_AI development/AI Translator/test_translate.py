@@ -1,7 +1,7 @@
 #项目目标是将中文翻译成稀缺的小语种
 from openai import OpenAI
 client=OpenAI(
-    api_key="sk-1032e547c2404c20940a4187e6b06845",
+    api_key="security_code",
     base_url="https://api.deepseek.com"
 )
 msg=[
