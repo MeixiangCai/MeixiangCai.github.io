@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, initial-scale=1.0">
+  <title>PPT-TEMP</title>
+<!--  <link rel="stylesheet" href="ppt-temp.css">-->
+    <style>
+        body {
+          margin: 0;
+          background: #fff;
+          font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+        }
+        .welcome_page, .directory_page, .chapter_page, .chapter_detail_page {
+          width: 1280px;
+          height: 832px;
+          position: relative;
+          margin: 0 auto 40px auto;
+          background: #e7f0eb;
+          overflow: hidden;
+          box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18), 0 1.5px 6px 0 rgba(0,0,0,0.10);
+          border-radius: 16px;
+        }
+        .bac_rect {
+          position: absolute;
+          left: -206px;
+          top: -79px;
+          width: 1134px;
+          height: 729px;
+          background: #4d9a6f;
+          border-radius: 104px;
+          z-index: 1;
+        }
+        .directory_page .bac_rect {
+          top: 0;
+          width: 679px;
+          height: 987px;
+        }
+        .chapter_page .bac_rect {
+          left: 432px;
+          top: -151px;
+          width: 1218px;
+          height: 842px;
+        }
+        .content {
+          position: absolute;
+          left: 147px;
+          top: 178px;
+          z-index: 2;
+        }
+        .main_title {
+          font-size: clamp(24px, 5vw, 76px);
+          color: #fff;
+          font-weight: bold;
+          line-height: 104px;
+          margin-bottom: 24px;
+          width:600px;
+        }
+        .title_des {
+          font-size: clamp(24px, 5vw, 32px);
+          color: #fff;
+          margin-bottom: 16px;
+        }
+        .author, .team {
+          position: absolute;
+          z-index: 2;
+          font-size: clamp(24px, 5vw, 32px);
+          color: #000;
+        }
+        .author {
+          left: 117px;
+          top: 696px;
+        }
+        .team {
+          left: 525px;
+          top: 696px;
+        }
+        .author-cn, .team-cn {
+          font-size: clamp(12px, 5vw, 32px);
+          font-weight: bold;
+        }
+        .author-en, .team-en {
+          font-size: clamp(12px, 5vw, 24px);
+        }
+        .img1 {
+          position: absolute;
+          left: 700px;
+          top: 222px;
+          width: 610px;
+          height: 610px;
+          object-fit: contain;
+          z-index: 100;
+        }
+        .img2 {
+          position: absolute;
+          left: 0px;
+          top: 30px;
+          width: 242px;
+          height: 192px;
+          object-fit: cover;
+          z-index: 2;
+        }
+        .directory_page .img1 {
+          left: 0px;
+          top: 286px;
+          width: 566px;
+          height: 566px;
+        }
+        .directory_page .img2 {
+          left: 1026px;
+          top: 42px;
+          width: 254px;
+          height: 201px;
+        }
+        .chapter_page .img1 {
+          left: 0px;
+          top: 231px;
+          width: 621px;
+          height: 621px;
+          /*opacity: 0.8;*/
+        }
+        .chapter_page .img2 {
+          left: 811px;
+          top: 505px;
+          width: 469px;
+          height: 372px;
+        }
+        .line {
+          position: absolute;
+          left: 47px;
+          top: 144px;
+          width: 1186px;
+          height: 2px;
+          background: #4d9a6f;
+          z-index: 3;
+        }
+        .directory_page .dir_title {
+          position: absolute;
+          left: 143px;
+          top: 112px;
+          font-size: clamp(24px, 5vw, 64px);
+          color: #fff;
+          z-index: 2;
+        }
+        .dir_item {
+          position: relative;
+          display: flex;
+          align-items: center;
+          margin-left: 665px;
+          margin-bottom: 32px;
+          z-index: 2;
+        }
+        .ellipse {
+          width: 66px;
+          height: 66px;
+          background: #4d9a6f;
+          border-radius: 50%;
+          color: #fff;
+          font-size: clamp(24px, 5vw, 48px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 16px;
+        }
+        .item_text {
+          font-size: clamp(24px, 5vw, 32px);
+          color: #444;
+        }
+        .chapter_page .content {
+          left: 552px;
+          top: 208px;
+        }
+        .chapter_page .chapter_title {
+          font-size: clamp(24px, 5vw, 64px);
+          color: #fff;
+          font-weight: bold;
+          margin-bottom: 24px;
+        }
+        .chapter_page .describe {
+          font-size: clamp(24px, 5vw, 32px);
+          color: #fff;
+        }
+        .chapter_detail_page .chapter_title {
+          position: absolute;
+          left: 64px;
+          top: 72px;
+          font-size: clamp(24px, 5vw, 48px);
+          color: #4d9a6f;
+          font-weight: bold;
+        }
+        .chapter_detail_page .page_content {
+          position: absolute;
+          left: 141px;
+          top: 347px;
+        }
+        .chapter_detail_page .title {
+          font-size: clamp(24px, 5vw, 36px);
+          color: #3a3a3a;
+          font-weight: bold;
+          margin-bottom: 16px;
+        }
+        .chapter_detail_page .body {
+          font-size: clamp(18px, 5vw, 28px);
+          color: #3a3a3a;
+          width: 600px
+        }
+        .chapter_detail_page .img1 {
+          left: 874px;
+          top: 229px;
+          width: 406px;
+          height: 540px;
+          z-index: 0;
+        }
+        .dir_list {
+          position: absolute;
+          top: 205px;
+          z-index: 2;
+        }
+
+        /* 翻页组件样式 */
+        .page-switcher {
+          position: absolute;
+          right: 40px;
+          bottom: 40px;
+          width: 340px;
+          height: 51px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          z-index: 100;
+        }
+        .page-btn {
+          width: 119px;
+          height: 51px;
+          border-radius: 13px;
+          border: 1px solid #4d9a6f;
+          background: #fff;
+          color: #4d9a6f;
+          font-size: clamp(12px, 5vw, 28px);
+          font-weight: bold;
+          cursor: pointer;
+          transition: background 0.2s, color 0.2s;
+          outline: none;
+        }
+        .page-btn.next {
+          background: #4d9a6f;
+          color: #fff;
+        }
+        .page-btn:active {
+          filter: brightness(0.95);
+        }
+    </style>
+</head>
+<body>
+    
+        
+<div class="welcome_page">
+  <div class="bac_rect"></div>
+  <div class="content">
+    <div class="main_title">2024年Q2工作总结</div>
+    <div class="title_des">运营部门季度总结报告</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423722076_38747/3.png" alt="img1">
+  <img class="img2" src="http://nocturne.bczcdn.com/img/1753423718645_86698/2.png" alt="img2">
+  <div class="author">
+    <div class="author-cn">小羽</div>
+    <div class="author-en">xiaoyu</div>
+  </div>
+  <div class="team">
+    <div class="team-cn">超有爱</div>
+    <div class="team-en">baicizhan.com</div>
+  </div>
+  <div class="line"></div>
+</div>
+    
+        
+<div class="directory_page">
+  <div class="bac_rect"></div>
+  <div class="dir_title">目录</div>
+  <div class="dir_list">
+    
+    <div class="dir_item">
+      <div class="ellipse">1</div>
+      <div class="item_text">平台运营优化</div>
+    </div>
+    
+    <div class="dir_item">
+      <div class="ellipse">2</div>
+      <div class="item_text">内容生态建设</div>
+    </div>
+    
+    <div class="dir_item">
+      <div class="ellipse">3</div>
+      <div class="item_text">商业化转化提升</div>
+    </div>
+    
+    <div class="dir_item">
+      <div class="ellipse">4</div>
+      <div class="item_text">团队协作与成长</div>
+    </div>
+    
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753425673715_46078/5.png" alt="img1">
+  <img class="img2" src="http://nocturne.bczcdn.com/img/1753423662670_15166/1.png" alt="img2">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_page">
+  <div class="bac_rect"></div>
+  <div class="content">
+    <div class="chapter_title">平台运营优化</div>
+    <div class="describe">本节聚焦首页推荐算法升级与活动中心创新，显著提升用户互动与数据效率。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753425673715_46078/5.png" alt="img1">
+  <img class="img2" src="http://nocturne.bczcdn.com/img/1753423662670_15166/1.png" alt="img2">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">平台运营优化</div>
+  <div class="page_content">
+    <div class="title">首页推荐改版</div>
+    <div class="body">通过动态更新用户兴趣标签优化推荐算法，推荐命中率提升18%，增强了内容个性化匹配能力。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">平台运营优化</div>
+  <div class="page_content">
+    <div class="title">活动中心创新</div>
+    <div class="body">新增“节日企划”系列活动，用户参与度显著提高，点击转化增长约17%，有效激活了平台活跃度。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">平台运营优化</div>
+  <div class="page_content">
+    <div class="title">数据分析工具升级</div>
+    <div class="body">上线可视化仪表盘，大幅提升数据汇总效率，为运营决策提供了更直观和及时的数据支持。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_page">
+  <div class="bac_rect"></div>
+  <div class="content">
+    <div class="chapter_title">内容生态建设</div>
+    <div class="describe">本节介绍主题库扩展与内容共创机制，吸引深度用户并提升内容质量。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753425673715_46078/5.png" alt="img1">
+  <img class="img2" src="http://nocturne.bczcdn.com/img/1753423662670_15166/1.png" alt="img2">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">内容生态建设</div>
+  <div class="page_content">
+    <div class="title">主题库方向扩展</div>
+    <div class="body">新增“新能源”、“人工智能”等15个行业专题，配合“知识月”活动，吸引了大量深度用户参与。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">内容生态建设</div>
+  <div class="page_content">
+    <div class="title">内容共创机制</div>
+    <div class="body">邀请领域专家进行专题投稿，内容质量明显提升，增强了平台的权威性和用户粘性。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_page">
+  <div class="bac_rect"></div>
+  <div class="content">
+    <div class="chapter_title">商业化转化提升</div>
+    <div class="describe">本节回顾电商链路优化与营销创新，推动订单增长与用户消费活跃度。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753425673715_46078/5.png" alt="img1">
+  <img class="img2" src="http://nocturne.bczcdn.com/img/1753423662670_15166/1.png" alt="img2">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">商业化转化提升</div>
+  <div class="page_content">
+    <div class="title">电商链路重构</div>
+    <div class="body">优化从内容页到商品页的跳转路径，解决了效率问题，提升了用户购物体验和转化率。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">商业化转化提升</div>
+  <div class="page_content">
+    <div class="title">营销形式创新</div>
+    <div class="body">新增“推荐卡片”和限时活动模块，帮助用户快速决策，提高了站内活跃消费频率。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">商业化转化提升</div>
+  <div class="page_content">
+    <div class="title">转化订单增长</div>
+    <div class="body">本季度日均转化订单同比增长超20%，显示出商业化策略的有效性和市场响应积极。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_page">
+  <div class="bac_rect"></div>
+  <div class="content">
+    <div class="chapter_title">团队协作与成长</div>
+    <div class="describe">本节总结OKR机制推进与培训成效，提升跨部门协作效率与员工满意度。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753425673715_46078/5.png" alt="img1">
+  <img class="img2" src="http://nocturne.bczcdn.com/img/1753423662670_15166/1.png" alt="img2">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">团队协作与成长</div>
+  <div class="page_content">
+    <div class="title">OKR机制推进</div>
+    <div class="body">进一步推动OKR机制，在Notion上搭建项目协作体系，统一了项目更新与文档协同。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">团队协作与成长</div>
+  <div class="page_content">
+    <div class="title">跨部门效率提升</div>
+    <div class="body">通过协作体系优化，跨部门工作效率显著提升，减少了沟通障碍和重复工作。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="chapter_detail_page">
+  <div class="chapter_title">团队协作与成长</div>
+  <div class="page_content">
+    <div class="title">内部培训与满意度</div>
+    <div class="body">进行数据分析和内容设计培训，员工满意度达91%，比上季度上升近10个百分点。</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423726769_97054/4.png" alt="img1">
+  <div class="line"></div>
+</div>
+    
+        
+<div class="welcome_page">
+  <div class="bac_rect"></div>
+  <div class="content">
+    <div class="main_title">Thank You!</div>
+    <div class="title_des">感谢您的观看</div>
+  </div>
+  <img class="img1" src="http://nocturne.bczcdn.com/img/1753423722076_38747/3.png" alt="img1">
+  <img class="img2" src="http://nocturne.bczcdn.com/img/1753423718645_86698/2.png" alt="img2">
+  <div class="author">
+    <div class="author-cn">小羽</div>
+    <div class="author-en">xiaoyu</div>
+  </div>
+  <div class="team">
+    <div class="team-cn">超有爱</div>
+    <div class="team-en">baicizhan.com</div>
+  </div>
+  <div class="line"></div>
+</div>
+    
+    
+  <div class="page-switcher">
+    <button class="page-btn prev">上一页</button>
+    <button class="page-btn next">下一页</button>
+  </div>
+  <script>
+    const pages = Array.from(
+      document.querySelectorAll(
+        '.welcome_page, .directory_page, .chapter_page, .chapter_detail_page'
+      )
+    );
+    let currentPage = 0;
+    function showPage(idx) {
+      pages.forEach((p, i) => {
+        if (p) {
+          p.style.display = (i === idx) ? 'block' : 'none';
+        }
+      });
+    }
+    showPage(currentPage);
+    function gotoPage(idx) {
+      if (idx < 0 || idx >= pages.length) return;
+      currentPage = idx;
+      showPage(currentPage);
+    }
+    // 只给当前显示的page的page-switcher绑定事件
+    function bindSwitcherEvents() {
+      document.querySelectorAll('.page-switcher').forEach((el, i) => {
+        el.querySelector('.page-btn.prev').onclick = () => gotoPage(currentPage - 1);
+        el.querySelector('.page-btn.next').onclick = () => gotoPage(currentPage + 1);
+      });
+    }
+    bindSwitcherEvents();
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') gotoPage(currentPage - 1);
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') gotoPage(currentPage + 1);
+    });
+    window.addEventListener('wheel', e => {
+      if (e.deltaY > 0) gotoPage(currentPage + 1);
+      if (e.deltaY < 0) gotoPage(currentPage - 1);
+    }, {passive:true});
+  </script>
+</body>
+</html> 
